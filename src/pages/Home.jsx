@@ -11,13 +11,8 @@ const Home = () => {
   const { userData } = useSelector((store) => store.userAuth);
   console.log(userData);
 
-  if (document.cookie === '') {
-    dispatch(logout_user())
-    navigate("/login");
-  }
-
   const handleLogout = async () => {
-    const url = "http://localhost:5000/api/v1/user/logout";
+    const url = "https://e-com-api-pgag.onrender.com/api/v1/user/logout";
     fetch(url, {
       method: "POST",
       headers: {
