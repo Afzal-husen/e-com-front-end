@@ -26,8 +26,20 @@ const slice = createSlice({
         error: actions.payload
       }
     },
+    resetToInitialState: (state) => {
+      return initialState
+    },
     logout_user: (state) => {
       return initialState
+    },
+    resetPassword_success: (state, actions) => {
+      state.userData = actions.payload
+    },
+    resetPassword_failure: (state, actions) => {
+      return {
+        ...initialState,
+        error: actions.payload
+      }
     }
   },
 });
@@ -35,6 +47,9 @@ const slice = createSlice({
 export const { login_register_loadUser_Start,
    login_register_loadUser_success,
    login_register_failure,
-   logout_user
+   logout_user,
+   resetToInitialState,
+   resetPassword_success,
+   resetPassword_failure
    } = slice.actions;
 export default slice.reducer;

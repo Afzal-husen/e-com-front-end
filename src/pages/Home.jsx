@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout_user } from "../Redux/features/userSlice.js";
@@ -9,16 +9,29 @@ const Home = () => {
   const navigate = useNavigate();
 
   const { userData } = useSelector((store) => store.userAuth);
-  console.log(userData);
+
+  const cookie = document.cookie
+
+  useEffect(() => {
+    if(!cookie) {
+      dispatch(logout_user());
+    } 
+  })
+
+
 
   const handleLogout = async () => {
-    const url = "https://e-com-api-pgag.onrender.com/api/v1/user/logout";
-    fetch(url, {
-      method: "POST",
+    // const url = "https://e-com-api-pgag.onrender.com/api/v1/user/logout";
+    const url = "http://localhost:5000/api/v1/user/logout";
+    const res = await fetch(url, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
+    
+    const data = await res.json()
+    console.log(data)
     dispatch(logout_user());
     navigate("/login");
   };
