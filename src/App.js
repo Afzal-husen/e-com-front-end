@@ -5,7 +5,7 @@ import Signup from "./components/user/Signup";
 import Home from "./pages/Home";
 import ForgotPwd from "./components/user/ForgotPwd";
 import ResetPassword from "./components/user/ResetPassword";
-import VerifyToken from "./components/VerifyToken";
+import VerifyToken from "./components/user/VerifyToken";
 
 function App() {
   return (

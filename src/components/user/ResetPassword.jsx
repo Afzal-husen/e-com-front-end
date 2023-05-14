@@ -22,8 +22,8 @@ const ResetPassword = () => {
 
   const handleReset = async (e) => {
     e.preventDefault();
-    // const url = `https://e-com-api-pgag.onrender.com/api/v1/user/password/reset/${token}`;
-    const url = `http://localhost:5000/api/v1/user/password/reset/${token}`;
+    const url = `https://e-com-api-pgag.onrender.com/api/v1/user/password/reset/${token}`;
+    // const url = `http://localhost:5000/api/v1/user/password/reset/${token}`;
 
     const res = await fetch(url, {
       method: "PUT",

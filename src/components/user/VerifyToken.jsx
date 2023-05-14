@@ -11,7 +11,8 @@ const VerifyToken = () => {
   const handleVerify = async (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:5000/api/v1/user/password/verify";
+    const url = "https://e-com-api-pgag.onrender.com/api/v1/user/password/verify";
+    // const url = "http://localhost:5000/api/v1/user/password/verify";
     const res = await fetch(url, {
       method: "POST",
       headers: {

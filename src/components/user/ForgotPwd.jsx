@@ -17,8 +17,8 @@ const ForgotPwd = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const url = "https://e-com-api-pgag.onrender.com/api/v1/user/password/forgot";
-      const url = "http://localhost:5000/api/v1/user/password/forgot";
+      const url = "https://e-com-api-pgag.onrender.com/api/v1/user/password/forgot";
+      // const url = "http://localhost:5000/api/v1/user/password/forgot";
 
       const res = await fetch(url, {
         method: "POST",
