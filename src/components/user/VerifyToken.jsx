@@ -20,9 +20,12 @@ const VerifyToken = () => {
   const handleVerify = async (e) => {
     e.preventDefault();
     dispatch(login_register_loadUser_Start());
-    const url =
-      "https://e-com-api-pgag.onrender.com/api/v1/user/password/verify";
+    // const url =
+    //   "https://e-com-api-pgag.onrender.com/api/v1/user/password/verify";
     // const url = "http://localhost:5000/api/v1/user/password/verify";
+    const url =
+      `${process.env.REACT_APP_DEV_URL}/user/password/verify` ||
+      `${process.env.REACT_APP_PROD_URL}/user/password/verify`;
     const res = await fetch(url, {
       method: "POST",
       headers: {

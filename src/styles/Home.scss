@@ -1,0 +1,15 @@
+.home-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    .home-wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    }
+}
