@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ForgotPwd from "./components/user/ForgotPwd";
 import ResetPassword from "./components/user/ResetPassword";
 import VerifyToken from "./components/user/VerifyToken";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/password/forgot" element={<ForgotPwd/>} />
           <Route path="/password/reset/:token" element={<ResetPassword/>} />
           <Route path="/password/verify" element={<VerifyToken/>} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
     </div>

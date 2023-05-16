@@ -5,7 +5,7 @@ import { logout_user } from "../Redux/features/userSlice.js";
 import { useNavigate, Link } from "react-router-dom";
 import Loader from "../components/layout/Loader.jsx";
 import { login_register_loadUser_Start } from "../Redux/features/userSlice.js";
-import ProductCard from "../components/layout/ProductCard.jsx";
+import ProductCard from "../components/product/ProductCard.jsx";
 import "../styles/Home.scss"
 
 const Home = () => {
