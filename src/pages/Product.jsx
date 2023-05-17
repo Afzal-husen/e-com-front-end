@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import "../styles/Product.scss"
+import "../styles/Product.scss";
+import NavBar from "../components/layout/NavBar";
 
 const Product = () => {
   const id = useLocation().pathname.split("/")[2];
@@ -9,7 +10,6 @@ const Product = () => {
   console.log(product);
 
   useEffect(() => {
-
     const fetchProduct = async () => {
       const url =
         `${process.env.REACT_APP_DEV_URL}/products/product/${id}` ||
@@ -30,6 +30,8 @@ const Product = () => {
 
   return (
     <Fragment>
+      <NavBar />
+
       <div className="prod-container">
         <div className="prod-wrapper">
           <div className="prodImg-container">

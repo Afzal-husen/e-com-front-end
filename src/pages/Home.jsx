@@ -2,17 +2,18 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout_user } from "../Redux/features/userSlice.js";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Loader from "../components/layout/Loader.jsx";
 import { login_register_loadUser_Start } from "../Redux/features/userSlice.js";
 import ProductCard from "../components/product/ProductCard.jsx";
-import "../styles/Home.scss"
+import "../styles/Home.scss";
+import NavBar from "../components/layout/NavBar.jsx";
 
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { userData, loading } = useSelector((store) => store.userAuth);
+  const { loading } = useSelector((store) => store.userAuth);
 
   const [products, setProducts] = useState([]);
   console.log(products);
@@ -76,8 +77,12 @@ const Home = () => {
     //   )}
     // </Fragment>
     <Fragment>
-      {loading === true ? <Loader /> : (
+      {loading === true ? (
+        <Loader />
+      ) : (
         <Fragment>
+          <NavBar />
+
           <div className="home-container">
             <div className="home-wrapper">
               {products.map((product) => (

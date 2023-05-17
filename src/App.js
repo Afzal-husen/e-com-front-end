@@ -13,12 +13,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/password/forgot" element={<ForgotPwd/>} />
-          <Route path="/password/reset/:token" element={<ResetPassword/>} />
-          <Route path="/password/verify" element={<VerifyToken/>} />
+          <Route path="/password/forgot" element={<ForgotPwd />} />
+          <Route path="/password/reset/:token" element={<ResetPassword />} />
+          <Route path="/password/verify" element={<VerifyToken />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
       </BrowserRouter>
