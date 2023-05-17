@@ -32,11 +32,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(login_register_loadUser_Start());
-    // const url = "https://e-com-api-pgag.onrender.com/api/v1/user/signin";
+    const url = "https://e-com-api-pgag.onrender.com/api/v1/user/signin";
     // const url = "http://localhost:5000/api/v1/user/signin";
-    const url =
-      `${process.env.REACT_APP_DEV_URL}/user/signin` ||
-      `${process.env.REACT_APP_PROD_URL}/user/signin`;
 
     const res = await fetch(url, {
       method: "POST",
@@ -88,69 +85,63 @@ const Login = () => {
   };
   return (
     <Fragment>
-      {loading === true ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <div className="container">
-            <div className="wrapper">
-              <form className="form" onSubmit={handleLogin}>
-                <h2 className="form-title">Login</h2>
-                <div className="input-container">
-                  <label className="input-label">Email:</label>
-                  <span className="material-symbols-outlined">mail</span>
-                  <input
-                    type="email"
-                    placeholder="johndoe@example.com"
-                    onChange={handleLoginDataChange}
-                    name="email"
-                    value={loggedEmail}
-                    className="input-field"
-                  />
-                </div>
-
-                <div className="input-container">
-                  <label className="input-label">Password</label>
-                  <span
-                    className="material-symbols-outlined"
-                    onClick={handlePasswordVisibility}>
-                    {isVisible ? "visibility" : "visibility_off"}{" "}
-                  </span>
-                  <input
-                    ref={passEl}
-                    type="password"
-                    placeholder="password..."
-                    onChange={handleLoginDataChange}
-                    name="password"
-                    value={loggedPassword}
-                    className="input-field"
-                  />
-                </div>
-                <input className="btn" type="submit" value="signin" />
-              </form>
-              <span>
-                create a new account
-                <Link to="/signup">Signup</Link>
-              </span>
-              <span>
-                <Link to={"/password/forgot"}>forgot your password?</Link>
-              </span>
+      <div className="container">
+        <div className="wrapper">
+          <form className="form" onSubmit={handleLogin}>
+            <h2 className="form-title">Login</h2>
+            <div className="input-container">
+              <label className="input-label">Email:</label>
+              <span className="material-symbols-outlined">mail</span>
+              <input
+                type="email"
+                placeholder="johndoe@example.com"
+                onChange={handleLoginDataChange}
+                name="email"
+                value={loggedEmail}
+                className="input-field"
+              />
             </div>
-          </div>
-          <ToastContainer
-            position="top-right"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
-        </Fragment>
-      )}
+
+            <div className="input-container">
+              <label className="input-label">Password</label>
+              <span
+                className="material-symbols-outlined"
+                onClick={handlePasswordVisibility}>
+                {isVisible ? "visibility" : "visibility_off"}{" "}
+              </span>
+              <input
+                ref={passEl}
+                type="password"
+                placeholder="password..."
+                onChange={handleLoginDataChange}
+                name="password"
+                value={loggedPassword}
+                className="input-field"
+              />
+            </div>
+            <input className="btn" type="submit" value="signin" />
+          </form>
+          <span>
+            create a new account
+            <Link to="/signup">Signup</Link>
+          </span>
+          <span>
+            <Link to={"/password/forgot"}>forgot your password?</Link>
+          </span>
+        </div>
+      </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </Fragment>
   );
 };

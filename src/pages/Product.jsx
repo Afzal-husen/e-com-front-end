@@ -11,9 +11,7 @@ const Product = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const url =
-        `${process.env.REACT_APP_DEV_URL}/products/product/${id}` ||
-        `${process.env.REACT_APP_PROD_URL}/products/product/${id}`;
+    const url = `https://e-com-api-pgag.onrender.com/api/v1/products/product/${id}`;
 
       const res = await fetch(url, {
         method: "GET",

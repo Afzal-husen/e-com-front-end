@@ -10,6 +10,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../layout/Loader.jsx";
+import { FaUserAlt } from "react-icons/fa";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -34,12 +35,9 @@ const Signup = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     dispatch(login_register_loadUser_Start());
-    // const url = "https://e-com-api-pgag.onrender.com/api/v1/user/signup";
+    const url = "https://e-com-api-pgag.onrender.com/api/v1/user/signup";
     // const url = "http://localhost:5000/api/v1/user/signup";
-    const url =
-      `${process.env.REACT_APP_DEV_URL}/user/signup` ||
-      `${process.env.REACT_APP_PROD_URL}/user/signup`;
-      
+
     const res = await fetch(url, {
       method: "POST",
       headers: {
@@ -108,6 +106,14 @@ const Signup = () => {
             <div className="wrapper">
               <form className="form" onSubmit={handleRegister}>
                 <h2 className="form-title">Create an account</h2>
+                <FaUserAlt
+                  style={{
+                    border: "2px solid black",
+                    padding: "0.5rem",
+                    fontSize: "2rem",
+                    borderRadius: "50%",
+                  }}
+                />
                 <div className="input-container">
                   <label className="input-label">Name</label>
                   <span className="material-symbols-outlined">person</span>

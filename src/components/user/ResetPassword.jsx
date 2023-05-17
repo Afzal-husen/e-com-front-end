@@ -33,11 +33,8 @@ const ResetPassword = () => {
   const handleReset = async (e) => {
     dispatch(login_register_loadUser_Start());
     e.preventDefault();
-    // const url = `https://e-com-api-pgag.onrender.com/api/v1/user/password/reset/${token}`;
+    const url = `https://e-com-api-pgag.onrender.com/api/v1/user/password/reset/${token}`;
     // const url = `http://localhost:5000/api/v1/user/password/reset/${token}`;
-    const url =
-      `${process.env.REACT_APP_DEV_URL}/user/password/reset/${token}` ||
-      `${process.env.REACT_APP_PROD_URL}/user/password/reset/${token}`;
 
     const res = await fetch(url, {
       method: "PUT",

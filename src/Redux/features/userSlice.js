@@ -14,6 +14,9 @@ const slice = createSlice({
     login_register_loadUser_Start: (state) => {
       state.loading = true
     },
+    loader_off: (state) => {
+      state.loading = false
+    },
     login_register_loadUser_success: (state, actions) => {
       state.loading = false
       state.isAuthenticated = true
@@ -50,6 +53,7 @@ export const { login_register_loadUser_Start,
    logout_user,
    resetToInitialState,
    resetPassword_success,
-   resetPassword_failure
+   resetPassword_failure,
+   loader_off
    } = slice.actions;
 export default slice.reducer;
